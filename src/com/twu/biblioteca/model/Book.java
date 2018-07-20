@@ -13,9 +13,17 @@ public class Book {
         isCheckedOut = false;
     }
 
+    public void setCheckedStatus(boolean checkedOut) {
+        isCheckedOut = checkedOut;
+    }
+
     @Override
     public String toString() {
         return String.format("%-30s%-30s%-30s",name,author,publishedYear);
+    }
+
+    public boolean getCheckedStatus(){
+        return isCheckedOut;
     }
 
     public String getName() {

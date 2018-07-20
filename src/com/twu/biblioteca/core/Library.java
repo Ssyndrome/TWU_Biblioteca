@@ -4,7 +4,7 @@ import com.twu.biblioteca.model.Book;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Library implements RentImplement {
+public class Library implements CheckImplement {
     private static final String DIVIDER = "******************************************************************************";
     private List<Book> bookList;
 
@@ -21,8 +21,23 @@ public class Library implements RentImplement {
     @Override
     public void printMaterialList() {
         System.out.println(String.format(DIVIDER+"\n"+"%-30s%-30s%-30s\n"+DIVIDER,"Name","Author","Published Year"));
-        bookList.stream().filter(i->!i.isCheckedOut).forEach(i->System.out.println(i.toString()));
+        bookList.stream().filter(i->!i.getCheckedStatus()).forEach(i->System.out.println(i.toString()));
         System.out.println(DIVIDER);
+    }
+
+    private boolean changeBookStatus(String name) {
+        boolean readyToCheck = bookList.stream().anyMatch(i -> i.getName().equals(name) && i.getCheckedStatus()==false);
+        if(readyToCheck) {
+            bookList.stream().filter(i -> i.getName().equals(name)).forEach(i -> {
+                i.setCheckedStatus(true);
+            });
+        }
+        return readyToCheck;
+    }
+
+    @Override
+    public boolean checkOut(String name){
+        return changeBookStatus(name);
     }
 
 
