@@ -31,4 +31,11 @@ public class BibliotecaController {
             }
         }
     }
+
+    public void returnBook() {
+        System.out.println("Please input book name you want to return:");
+        System.out.println(library.returnBook(reader.readMessage()) ?
+                            "Thank you for returning the book." :
+                            "That is not a valid book to return.");
+    }
 }

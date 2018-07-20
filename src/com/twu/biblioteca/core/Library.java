@@ -35,10 +35,23 @@ public class Library implements CheckImplement {
         return readyToCheck;
     }
 
+    private boolean getBookReturned(String name) {
+        boolean readyToReturn = bookList.stream().anyMatch(i -> i.getName().equals(name) && i.getCheckedStatus()==true);
+        if(readyToReturn) {
+            bookList.stream().filter(i -> i.getName().equals(name)).forEach(i -> {
+                i.setCheckedStatus(false);
+            });
+        }
+        return readyToReturn;
+    }
+
     @Override
     public boolean checkOut(String name){
         return changeBookStatus(name);
     }
 
-
+    @Override
+    public boolean returnBook(String name){
+        return getBookReturned(name);
+    }
 }
