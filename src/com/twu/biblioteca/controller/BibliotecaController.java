@@ -17,6 +17,6 @@ public class BibliotecaController {
     }
 
     public void errorInput() {
-        System.out.println("Error!Please enter another valid message.");
+        System.out.println("Select a valid option!");
     }
 }
