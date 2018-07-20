@@ -21,7 +21,7 @@ public class Library implements RentImplement {
     @Override
     public void printMaterialList() {
         System.out.println(String.format(DIVIDER+"\n"+"%-30s%-30s%-30s\n"+DIVIDER,"Name","Author","Published Year"));
-        bookList.stream().forEach(i->System.out.println(i.toString()));
+        bookList.stream().filter(i->!i.isCheckedOut).forEach(i->System.out.println(i.toString()));
         System.out.println(DIVIDER);
     }
 

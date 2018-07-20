@@ -4,11 +4,13 @@ public class Book {
     private String name;
     private String author;
     private int publishedYear;
+    public boolean isCheckedOut;
 
     public Book(String name, String author, int publishedYear) {
         this.name = name;
         this.author = author;
         this.publishedYear = publishedYear;
+        isCheckedOut = false;
     }
 
     @Override
