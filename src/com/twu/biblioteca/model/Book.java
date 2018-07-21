@@ -19,7 +19,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return String.format("%-30s%-30s%-30s",name,author,publishedYear);
+        return String.format("%-30s%-30s%-30s\n", name, author, publishedYear);
     }
 
     public boolean getCheckedStatus(){

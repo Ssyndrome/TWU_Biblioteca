@@ -17,17 +17,17 @@ public class BibliotecaController {
     }
 
     public void errorInput() {
-        System.out.println("Select a valid option!");
+        System.out.print("Select a valid option!\n");
     }
 
     public void checkOut() {
         while (true){
             System.out.println("Please input book name you want to check out:");
             if(library.checkOut(reader.readMessage())){
-                System.out.println("Thank you! Enjoy the book!");
+                System.out.print("Thank you! Enjoy the book!\n");
                 break;
             }else{
-                System.out.println("That book is not available.");
+                System.out.print("That book is not available.");
             }
         }
     }

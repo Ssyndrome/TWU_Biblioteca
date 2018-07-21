@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Library implements CheckImplement {
-    private static final String DIVIDER = "******************************************************************************";
+    private static final String DIVIDER = "******************************************************************************\n";
     private List<Book> bookList;
 
     public Library() {
@@ -20,9 +20,9 @@ public class Library implements CheckImplement {
 
     @Override
     public void printMaterialList() {
-        System.out.println(String.format(DIVIDER+"\n"+"%-30s%-30s%-30s\n"+DIVIDER,"Name","Author","Published Year"));
-        bookList.stream().filter(i->!i.getCheckedStatus()).forEach(i->System.out.println(i.toString()));
-        System.out.println(DIVIDER);
+        System.out.print(String.format(DIVIDER + "%-30s%-30s%-30s\n" + DIVIDER,"Name","Author","Published Year"));
+        bookList.stream().filter(i->!i.getCheckedStatus()).forEach(i->System.out.print(i.toString()));
+        System.out.print(DIVIDER);
     }
 
     private boolean changeBookStatus(String name) {
